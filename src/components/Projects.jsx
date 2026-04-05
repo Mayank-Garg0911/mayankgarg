@@ -1,70 +1,52 @@
+import '../styles/About.css'
 import '../styles/Projects.css'
 
 export default function Projects() {
-  const projects = [
+  const projectsData = [
     {
-      title: 'SkyMail - Newsletter & Email Campaign Platform',
+      title: 'SkyMail NLP Platform',
       tech: ['FastAPI', 'Next.js', 'AWS SES', 'Docker'],
-      description: 'Production-grade email delivery system enabling template creation, campaign scheduling, and large-scale email dispatch with seamless infrastructure.',
-      highlights: ['AWS SES Integration', 'Docker Deployment', 'RESTful APIs', 'Responsive Frontend'],
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+      number: '01'
     },
     {
-      title: 'Data Analysis & Visualization Project',
+      title: 'Data Analysis Project',
       tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
-      description: 'Comprehensive data analysis on large datasets using exploratory data analysis to extract meaningful insights and patterns.',
-      highlights: ['Interactive Visualizations', 'Statistical Analysis', 'Data Cleaning'],
-      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+      number: '02'
     },
     {
-      title: 'Predictive Modeling Project',
+      title: 'Predictive Modeling',
       tech: ['Scikit-learn', 'XGBoost', 'Python'],
-      description: 'Developed and compared multiple machine learning models for classification and regression tasks with performance optimization.',
-      highlights: ['Feature Engineering', 'Model Optimization', 'Cross-Validation'],
-      gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+      number: '03'
     },
     {
-      title: 'Database Management System',
+      title: 'Database Management',
       tech: ['MySQL', 'Python', 'Flask'],
-      description: 'Real-world application with normalized database schema and complex SQL queries for enterprise-level data manipulation.',
-      highlights: ['CRUD Operations', 'SQL Optimization', 'Web Interface'],
-      gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
+      number: '04'
     }
   ]
 
   return (
-    <section id="projects" className="projects">
-      <div className="projects-container">
-        <div className="section-header">
-          <h2>Featured Projects</h2>
-          <div className="underline"></div>
-        </div>
-
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card" style={{ '--gradient': project.gradient }}>
-              <div className="project-header">
-                <div className="project-icon" style={{ background: project.gradient }}></div>
-                <h3>{project.title}</h3>
-              </div>
-              <p className="project-description">{project.description}</p>
-              
-              <div className="project-highlights">
-                {project.highlights.map(highlight => (
-                  <li key={highlight}>• {highlight}</li>
-                ))}
-              </div>
-
-              <div className="project-tech">
+    <section id="projects" className="section-container">
+      <div className="section-label">03 / Projects</div>
+      <div className="section-title">Case studies and<br />selected work.</div>
+      
+      <div className="projects-grid">
+        {projectsData.map(project => (
+          <div key={project.number} className="project-card">
+            <div className="project-content">
+              <span className="project-number">{project.number}</span>
+              <h3 className="project-title">{project.title}</h3>
+              <div className="project-tech" style={{display: 'flex', gap: '10px', flexWrap: 'wrap', opacity: 0.6}}>
                 {project.tech.map(tech => (
-                  <span key={tech} className="tech-badge">{tech}</span>
+                  <span key={tech} className="tech-badge" style={{fontSize: '0.7rem', fontWeight: 600}}>{tech}</span>
                 ))}
               </div>
-
-              <a href="#" className="project-link">View Project →</a>
+              <div className="project-links">
+                <span className="project-btn">VIEW CASE STUDY</span>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   )

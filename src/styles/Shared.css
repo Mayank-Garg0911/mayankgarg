@@ -49,56 +49,9 @@
   font-weight: 600;
 }
 
-@media (max-width: 1024px) {
-  .section-container {
-    padding: 80px 40px;
-  }
-  .section-title {
-    font-size: 3rem;
-  }
-}
-
 @media (max-width: 900px) {
   .grid-2 {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-  .section-container {
-    padding: 60px 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-container {
-    padding: 50px 25px;
-  }
-  .section-label {
-    font-size: 0.7rem;
-    gap: 10px;
-  }
-  .section-label::before {
-    width: 20px;
-  }
-  .section-title {
-    font-size: 2rem;
-    letter-spacing: -1px;
-  }
-  .content-text {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-container {
-    padding: 40px 15px;
-  }
-  .section-label {
-    font-size: 0.65rem;
-  }
-  .section-title {
-    font-size: 1.5rem;
-  }
-  .content-text {
-    font-size: 0.9rem;
   }
 }

@@ -1,35 +1,43 @@
 import { useState } from 'react'
+import { usePortfolio } from '../context/PortfolioContext'
 import '../styles/Navbar.css'
 
 export default function Navbar() {
+  const { state: { activeSection }, actions: { scrollToSection } } = usePortfolio() || { state: { activeSection: 'home' }, actions: { scrollToSection: () => {} } }
   const [isOpen, setIsOpen] = useState(false)
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
-    setIsOpen(false)
-  }
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'contact', label: 'Contact' }
+  ]
 
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <div className="nav-logo">
-          <span className="logo-text">MG</span>
-          <span className="logo-dot"></span>
+        <div className="nav-logo" onClick={() => scrollToSection('home')}>
+          FlyPro.
         </div>
 
         <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          <button onClick={() => scrollToSection('home')} className="nav-link">Home</button>
-          <button onClick={() => scrollToSection('about')} className="nav-link">About</button>
-          <button onClick={() => scrollToSection('skills')} className="nav-link">Skills</button>
-          <button onClick={() => scrollToSection('projects')} className="nav-link">Projects</button>
-          <button onClick={() => scrollToSection('contact')} className="nav-link">Contact</button>
+          {navItems.map(item => (
+            <button 
+              key={item.id}
+              onClick={() => {
+                scrollToSection(item.id)
+                setIsOpen(false)
+              }} 
+              className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
 
-        <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
-          <span className={isOpen ? 'active' : ''}></span>
-          <span className={isOpen ? 'active' : ''}></span>
-          <span className={isOpen ? 'active' : ''}></span>
+        <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)}>
+          <div className="hamburger-dot"></div>
         </div>
       </div>
     </nav>

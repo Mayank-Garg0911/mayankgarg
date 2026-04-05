@@ -1,16 +1,15 @@
-/* Global CSS Variables */
+/* Modern Dark Aesthetic CSS */
 :root {
-  --primary-color: #1a1a2e;
-  --secondary-color: #16213e;
-  --accent-color: #e94560;
-  --accent-light: #f39c12;
-  --accent-bright: #00d4ff;
-  --text-light: #eaeaea;
-  --text-muted: #b0b0b0;
-  --bg-dark: #0f3460;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow: 0 8px 32px rgba(233, 69, 96, 0.1);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --primary-color: #0c0c0c;
+  --secondary-color: #141414;
+  --accent-color: #9ef01a;
+  --accent-muted: rgba(158, 240, 26, 0.1);
+  --text-light: #ffffff;
+  --text-dim: #888888;
+  --text-muted: #555555;
+  --bg-dark: #000000;
+  --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -21,13 +20,69 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--primary-color);
 }
 
 body {
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-dark) 100%);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--primary-color);
   color: var(--text-light);
-  line-height: 1.6;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 0.8) 0%, rgba(12, 12, 12, 1) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.app {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Responsive Typography */
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+}
   overflow-x: hidden;
 }
 

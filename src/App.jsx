@@ -1,4 +1,5 @@
 import './App.css'
+import { PortfolioProvider } from './context/PortfolioContext'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
@@ -9,15 +10,20 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="app">
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
+    <PortfolioProvider>
+      <div className="app">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </PortfolioProvider>
   )
 }
 
