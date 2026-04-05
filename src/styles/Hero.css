@@ -1,0 +1,269 @@
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 2rem 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(233, 69, 96, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(243, 156, 18, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-container {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  animation: slideInLeft 0.8s ease;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ffffff, var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+  font-weight: bold;
+}
+
+.cursor.done {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.hero-social {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hero-social a {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(233, 69, 96, 0.1);
+  border: 2px solid rgba(233, 69, 96, 0.3);
+  color: var(--accent-color);
+  transition: var(--transition);
+}
+
+.hero-social a:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* Hero Animation */
+.hero-animation {
+  position: relative;
+  height: 400px;
+  animation: slideInRight 0.8s ease;
+}
+
+.blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(243, 156, 18, 0.1));
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: blobAnimation 8s ease-in-out infinite;
+  filter: blur(40px);
+  top: 0;
+  left: 0;
+}
+
+@keyframes blobAnimation {
+  0%, 100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  25% {
+    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+  }
+  50% {
+    border-radius: 70% 30% 70% 30% / 30% 70% 30% 70%;
+  }
+  75% {
+    border-radius: 30% 70% 30% 70% / 70% 30% 70% 30%;
+  }
+}
+
+.floating-card {
+  position: absolute;
+  padding: 15px 25px;
+  background: rgba(22, 33, 62, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(233, 69, 96, 0.3);
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--accent-color);
+  animation: float 3s ease-in-out infinite;
+  box-shadow: var(--shadow-md);
+}
+
+.card1 {
+  top: 20px;
+  left: 0;
+  animation-delay: 0s;
+}
+
+.card2 {
+  top: 150px;
+  right: 30px;
+  animation-delay: 0.5s;
+}
+
+.card3 {
+  bottom: 80px;
+  left: 50px;
+  animation-delay: 1s;
+}
+
+.card4 {
+  bottom: 20px;
+  right: 80px;
+  color: var(--accent-light);
+  animation-delay: 1.5s;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-animation {
+    height: 300px;
+  }
+
+  .blob {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 1.5rem 40px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    min-height: 50px;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero-animation {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 80vh;
+    padding: 80px 1rem 30px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .hero-social {
+    gap: 1rem;
+  }
+
+  .hero-social a {
+    width: 40px;
+    height: 40px;
+  }
+}
