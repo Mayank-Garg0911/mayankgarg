@@ -5,7 +5,7 @@ const PortfolioContext = createContext(null)
 export function PortfolioProvider({ children }) {
   const [activeSection, setActiveSection] = useState('home')
   const [isNavbarVisible, setIsNavbarVisible] = useState(true)
-  const sectionIds = ['home', 'about', 'skills', 'projects', 'contact']
+  const sectionIds = ['home', 'about', 'skills', 'projects','achievements', 'contact']
   const lastScrollYRef = useRef(0)
   
   const state = {

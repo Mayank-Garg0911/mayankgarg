@@ -10,7 +10,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section-container">
-      <div className="section-label">04 / Contact</div>
+      <div className="section-label">05 / Contact</div>
       <div className="grid-2">
         <div>
           <div className="section-title">
