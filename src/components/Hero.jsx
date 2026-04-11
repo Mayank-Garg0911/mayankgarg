@@ -46,6 +46,7 @@ export default function Hero() {
           <div className="sub-intro">
             <div className="intro-text-wrapper">
               <p className="intro-text">
+                <br />
                 I am a focused Data Science Engineer creating intelligent solutions and aesthetic digital experiences.
               </p>
               <div className="typewriter-wrapper">

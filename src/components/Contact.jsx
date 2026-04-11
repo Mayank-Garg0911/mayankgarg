@@ -5,7 +5,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault()
     // Add mailto or form submission logic
-    window.location.href = `mailto:mayankgarg091119@gmail.com`
+    window.location.href = `mailto:mayankgarg0911@gmail.com`
   }
 
   return (
@@ -18,12 +18,13 @@ export default function Contact() {
           </div>
           <div className="content-text">
             <p style={{marginBottom: '40px'}}>
-              Available for freelance collaborations and full-time opportunities. Drop a message or find me on socials.
+              Available for freelance collaborations and full-time opportunities. Drop a message or contact me on socials.
             </p>
             <div className="social-links">
-              <a href="https://linkedin.com/in/mayankgarg" target="_blank" className="social-btn">LinkedIn</a>
-              <a href="https://github.com/mayankgarg" target="_blank" className="social-btn">GitHub</a>
-              <a href="https://twitter.com" target="_blank" className="social-btn">X.com</a>
+              <a href="https://www.linkedin.com/in/mayank-garg-307403315/" target="_blank" className="social-btn">LinkedIn</a>
+              <a href="https://github.com/Mayank-Garg0911" target="_blank" className="social-btn">GitHub</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mayankgarg0911@gmail.com" target="_blank" className="social-btn">Mail me</a>
+              {/* <a href="https://twitter.com" target="_blank" className="social-btn">X.com</a> */}
             </div>
           </div>
         </div>

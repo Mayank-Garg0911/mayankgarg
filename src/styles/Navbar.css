@@ -8,6 +8,15 @@
   display: flex;
   justify-content: center;
   pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.navbar.visible {
+  transform: translateY(0);
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
 }
 
 .nav-container {
@@ -41,20 +50,28 @@
   position: relative;
   padding: 5px 0;
   transition: var(--transition);
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--text-light);
 }
 
-.nav-link.active::after {
+.nav-link::after {
   content: '';
   position: absolute;
   bottom: -4px;
   left: 0;
-  width: 100%;
+  width: 0;
   height: 2px;
   background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link.active::after {
+  width: 100%;
 }
 
 .hamburger {
@@ -62,12 +79,13 @@
   height: 54px;
   background: var(--accent-color);
   border-radius: 50%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: var(--transition);
   box-shadow: 0 4px 15px rgba(158, 240, 26, 0.3);
+  border: none;
 }
 
 .hamburger:hover {
@@ -102,12 +120,32 @@
   .navbar {
     padding: 30px 40px;
   }
-  .nav-menu {
-    display: none;
-    gap: 30px;
+  
+  .hamburger {
+    display: flex;
   }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    gap: 0;
+    display: none;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
   .nav-link {
     font-size: 0.75rem;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(158, 240, 26, 0.2);
   }
 }
 
@@ -115,15 +153,14 @@
   .navbar {
     padding: 20px;
   }
-  .nav-menu {
-    display: none !important;
-  }
-  .nav-logo {
-    font-size: 1.2rem;
-  }
+
   .hamburger {
     width: 48px;
     height: 48px;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
   }
 }
 
@@ -131,12 +168,18 @@
   .navbar {
     padding: 15px;
   }
+
   .nav-logo {
     font-size: 1rem;
   }
+
   .hamburger {
     width: 42px;
     height: 42px;
+  }
+
+  .nav-menu {
+    padding: 15px;
   }
 }
 

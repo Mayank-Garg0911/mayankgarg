@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import { AiOutlineHome } from 'react-icons/ai'
 import { usePortfolio } from '../context/PortfolioContext'
 import '../styles/Navbar.css'
 
 export default function Navbar() {
-  const { state: { activeSection }, actions: { scrollToSection } } = usePortfolio() || { state: { activeSection: 'home' }, actions: { scrollToSection: () => {} } }
+  const { state: { activeSection, isNavbarVisible }, actions: { scrollToSection } } = usePortfolio() || { state: { activeSection: 'home', isNavbarVisible: true }, actions: { scrollToSection: () => {} } }
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
@@ -15,10 +16,10 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isNavbarVisible ? 'visible' : 'hidden'}`}>
       <div className="nav-container">
         <div className="nav-logo" onClick={() => scrollToSection('home')}>
-          FlyPro.
+          <AiOutlineHome />
         </div>
 
         <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
