@@ -33,6 +33,7 @@
 .project-card:hover {
   border-color: var(--accent-color);
   transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(158, 240, 26, 0.15);
 }
 
 .project-content {
