@@ -37,39 +37,28 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero">
-      <div className="hero-container">
+      <div className="hero-wrapper">
         <div className="hero-content">
-          <h1 className="hero-title">
-            Mayank<br />Garg
-          </h1>
+          <h1 className="hero-title">Mayank Garg</h1>
           
-          <div className="sub-intro">
-            <div className="intro-text-wrapper">
-              <p className="intro-text">
-                <br />
-                I am a focused Data Science Engineer creating intelligent solutions and aesthetic digital experiences.
-              </p>
-              <div className="typewriter-wrapper">
-                <span className="type-text">{displayText}</span>
-                <span className="cursor">|</span>
-              </div>
+          <div className="hero-role">
+            <span className="role-prefix">I'm a</span>
+            <div className="typewriter-wrapper">
+              <span className="type-text">{displayText}<span className="cursor"></span></span>
             </div>
-            
-            <div className="hero-actions" style={{marginTop: '30px'}}>
-              <span className="read-more-link" onClick={() => scrollToSection('about')}>
-                READ MORE
-              </span>
-            </div>
+          </div>
+
+          <p className="hero-description">
+            I am a focused and curious Data Science Engineer driven by a passion for building intelligent systems and crafting meaningful digital experiences. I enjoy transforming raw data into actionable insights and designing solutions that are not only efficient but also intuitive and impactful. Beyond technical skills, I see myself as an explorer—someone who constantly seeks to understand how things work and how they can be improved.
+          </p>
+
+          <div className="hero-actions">
+            <button className="cta-button" onClick={() => scrollToSection('about')}>
+              Read More
+            </button>
           </div>
         </div>
 
-        <div className="hero-visual">
-          <div className="moon-visual"></div>
-        </div>
-      </div>
-
-      <div className="scroll-indicator">
-        <span>SCROLL DOWN</span>
       </div>
     </section>
   )
