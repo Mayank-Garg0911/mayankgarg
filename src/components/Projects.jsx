@@ -4,31 +4,35 @@ import '../styles/Projects.css'
 export default function Projects() {
   const projectsData = [
     {
-      title: 'SkyMail NLP Platform',
+      title: 'SkyMail - Email Automation System',
       tech: ['FastAPI', 'Next.js', 'AWS SES', 'Docker'],
-      number: '01'
+      number: '01',
+      link: 'https://www.skymail.solutions/'
     },
     {
       title: 'Data Analysis Project',
       tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
-      number: '02'
+      number: '02',
+      link: '#dataanalysis'
     },
     {
-      title: 'Predictive Modeling',
-      tech: ['Scikit-learn', 'XGBoost', 'Python'],
-      number: '03'
+      title: 'WriteSpace — Full-Stack Blogging Platform',
+      tech: ['FastAPI', 'Python', 'SQLAlchemy', 'JWT Auth', 'React', 'REST API'],
+      number: '03',
+      link: '#writespace'
     },
     {
-      title: 'Database Management',
-      tech: ['MySQL', 'Python', 'Flask'],
-      number: '04'
+      title: 'coming soon...',
+      tech: [],
+      number: '04',
+      link: '#'
     }
   ]
 
   return (
     <section id="projects" className="section-container">
       <div className="section-label">03 / Projects</div>
-      <div className="section-title">Case studies and<br />selected work.</div>
+      <div className="section-title">Built and Deployed </div>
       
       <div className="projects-grid">
         {projectsData.map(project => (
@@ -42,7 +46,9 @@ export default function Projects() {
                 ))}
               </div>
               <div className="project-links">
-                <span className="project-btn">VIEW CASE STUDY</span>
+                <a className="project-btn" href={project.link} target="_blank" rel="noopener noreferrer">
+                  CHECK HERE
+                </a>
               </div>
             </div>
           </div>
